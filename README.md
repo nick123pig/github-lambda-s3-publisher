@@ -1,12 +1,31 @@
 github-lambda-s3-publisher
 ==========================
 
-1. Install node.js, git, and awscli `brew install node git awscli`
-2. Install serverless `npm install -g serverless`
-3. Clone `git clone {this repo} && cd github-lambda-s3-publisher`
-4. Install dependencies `npm install`
-4. Configure your aws cli `aws configure`
-5. Copy the default config `cp config.default.yml config.yml`
-6. Edit `config.yml` with your values
-7. Deploy `serverless deploy`
-8. Log into your AWS account, find the SNS topic ARN, and put that into github
+## Dependencies
+github-lambda-s3-publisher requires node.js, git, awscli, and the [serverless framework](https://serverless.com/). Feel free to install these packages any way that you'd like.
+   * One Liners: 
+       * Mac: `brew install node git awscli`
+       * Windows: `bchoco install nodejs.install git awscli`
+       * Ubuntu: `sudo apt-get install nodejs git awscli`
+   * Make sure that your aws client is configured with `aws configure`
+
+## Setup
+```bash
+# Install the serverless framework globally
+npm install -g serverless 
+
+# Clone the repo
+git clone https://github.com/nick123pig/github-lambda-s3-publisher.git 
+cd github-lambda-s3-publisher
+
+# Install the dependencies
+npm install
+
+# Copy the default configuration
+cp config.default.yml config.yml
+
+# Deploy out!
+serverless deploy
+```
+
+After that, check your AWS account for the newly created SNS topic, and then add it to your github.
