@@ -1,0 +1,6 @@
+required:
+  S3_DESTINATION_BUCKET: 'bucket-name' # Enter the name of your S3 Bucket
+optional:
+  CLOUDFRONT_DISTRIBUTION_ID: 'distribution-id' # Optional - Invalidate Cloudfront
+  SLACK_WEBHOOK_URL: 'slack-url' # Optional - Notify slack on completion
+  GIT_WEBSITE_PREFIX_PATH: 'path' # Copy a subfolder/path of the repo to the root of the s3 bucket
