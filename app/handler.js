@@ -56,7 +56,7 @@ const cleanupTasks = (revision, lambdaDone) => {
 const uploadToS3 = (revision,lambdaDone) => {
   const {GIT_WEBSITE_PREFIX_PATH, S3_DESTINATION_BUCKET} = process.env;
   const uploadParams = {
-    localDir: `/tmp/${GIT_WEBSITE_PREFIX_PATH}`,
+    localDir: (GIT_WEBSITE_PREFIX_PATH ? `/tmp` : `/tmp/${GIT_WEBSITE_PREFIX_PATH}`),
     deleteRemoved: true,
     s3Params: {Bucket: S3_DESTINATION_BUCKET},
   };
