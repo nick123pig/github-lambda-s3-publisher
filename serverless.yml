@@ -1,4 +1,4 @@
-service: github-lambda-s3-publisher
+service: sheppit-lambda-s3-publisher
 
 provider:
   name: aws
@@ -6,7 +6,6 @@ provider:
   environment:
     S3_DESTINATION_BUCKET: ${file(./config.yml):required.S3_DESTINATION_BUCKET}
     CLOUDFRONT_DISTRIBUTION_ID: ${file(./config.yml):optional.CLOUDFRONT_DISTRIBUTION_ID}
-    SLACK_WEBHOOK_URL: ${file(./config.yml):optional.SLACK_WEBHOOK_URL}
     GIT_WEBSITE_PREFIX_PATH: ${file(./config.yml):optional.GIT_WEBSITE_PREFIX_PATH}
   iamRoleStatements:
     - Effect: Allow
@@ -34,4 +33,4 @@ functions:
   githubListen:
     handler: app/handler.githubListen
     events:
-      - sns: github-listen
+      - sns: sheppit-listen
